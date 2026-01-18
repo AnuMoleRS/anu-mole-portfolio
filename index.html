@@ -1,203 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anu Mole R S | Python Django Developer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anu Mole R S | Python Django Developer</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #f4f6f8;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #0d6efd, #6610f2);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { margin: 10px 0; font-size: 1.1rem; }
-    header a { color: #ffd43b; margin: 0 10px; font-weight: 600; }
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #10b981;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
-    }
+        [data-theme="dark"] {
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --border: #334155;
+        }
 
-    h2 {
-      text-align: center;
-      color: #0d6efd;
-      margin-bottom: 40px;
-      font-size: 2rem;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-    }
-    .skill-card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-    }
-    .skill-card:hover { transform: translateY(-6px); }
-    .skill-card img { width: 60px; height: 60px; }
-    .skill-card h4 { margin-top: 15px; }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* Experience */
-    ul { padding-left: 20px; }
+        /* Header */
+        header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 100px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .project-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 6px;
-      background: linear-gradient(90deg, #0d6efd, #6610f2);
-    }
-    .project-card h3 { margin-top: 10px; }
-    .tag {
-      display: inline-block;
-      background: #e7f1ff;
-      color: #0d6efd;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin-right: 6px;
-      margin-top: 10px;
-    }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
 
-    footer {
-      background: #212529;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-    }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
 
-    @media(max-width: 600px) {
-      header h1 { font-size: 2rem; }
-    }
-  </style>
+        .hero-info h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, white 0%, #f0f9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-info .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .stat-item small {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-primary);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Skills */
+        /* Enhanced Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive grid adjustments */
+        @media (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+
+        .skill-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+            }
+
+            .skill-card {
+                padding: 24px 20px;
+            }
+
+            .skill-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .skill-icon i {
+                font-size: 2rem;
+            }
+        }
+
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 40px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .experience-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-item li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .experience-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(4px);
+        }
+
+        /* Contact */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        /* Footer - FIXED for Dark Theme */
+        footer {
+            background: var(--text-primary);
+            color: rgba(248, 250, 252, 0.9);
+            /* Light text with proper opacity */
+            text-align: center;
+            padding: 40px 24px;
+            margin-top: 100px;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        /* Dark theme footer override */
+        [data-theme="dark"] footer {
+            background: #0f172a;
+            /* Proper dark slate background */
+            color: #e2e8f0;
+            /* Light steel color - HIGH CONTRAST */
+            border-top-color: #334155;
+        }
+
+        [data-theme="dark"] footer p {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* Heart icon fix for dark theme */
+        [data-theme="dark"] footer i {
+            color: #f87171 !important;
+            /* Bright red heart visible in dark */
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .animate:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .animate:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .animate:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 80px 16px 60px;
+            }
+
+            .card,
+            .project-content {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Anu Mole R S</h1>
-  <p>Python Django Developer | Backend & ERP Applications</p>
-  <p>
-    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank">LinkedIn</a> |
-    <a href="mailto:anumolers@gmail.com">Email</a>
-  </p>
-</header>
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
 
-<section>
-  <h2>About Me</h2>
-  <div class="card">
-    <p>
-      Software Developer with 1+ year of experience in building ERP and web applications using <strong>Python, Django, Angular, and SQL</strong>.
-      Specialized in backend development, REST APIs, database optimization, and scalable enterprise solutions.
-    </p>
-  </div>
-</section>
+        <div class="header-content">
+            <div class="hero-info">
+                <h1>Anu Mole R S</h1>
+                <p class="subtitle">Python Django Developer | Backend & ERP Specialist</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <strong>1+</strong>
+                        <small>Years Experience</small>
+                    </div>
+                    <div class="stat-item">
+                        <strong>5+</strong>
+                        <small>Completed Projects</small>
+                    </div>
+                    <div class="stat-item">
+                        <strong>ERP</strong>
+                        <small>Expert</small>
+                    </div>
+                </div>
+                <p style="margin-top: 24px;">
+                    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank"
+                        style="color: #fff; text-decoration: none; margin-right: 20px; font-weight: 500;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/anu-mole" target="_blank"
+                        style="color: #fff; text-decoration: none; font-weight: 500;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </p>
+            </div>
+            <img src="assets/profile.jpg" alt="Anu Mole R S"
+                style="width: 180px; height: 180px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.3); box-shadow: var(--shadow-lg);">
+        </div>
+    </header>
 
-<section>
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><h4>Python</h4></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"/><h4>Django</h4></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"/><h4>Angular</h4></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/><h4>PostgreSQL</h4></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/><h4>MySQL</h4></div>
-    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><h4>Git</h4></div>
-  </div>
-</section>
+    <section id="about">
+        <h2 class="animate">About Me</h2>
+        <div class="card animate">
+            <p>
+                Software Developer with <strong>1+ year of experience</strong> building scalable ERP and web
+                applications using
+                <strong>Python, Django, Angular, and SQL</strong>. Specialized in backend architecture, RESTful APIs,
+                database
+                optimization, and enterprise solutions that drive business growth.
+            </p>
+            <p style="margin-top: 24px;">
+                <a href="assets/resume.pdf" download class="project-link" style="font-size: 1.1rem; font-weight: 600;">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </p>
+        </div>
+    </section>
 
-<section>
-  <h2>Experience</h2>
-  <div class="card">
-    <h3>Software Developer – Travidux Technologies</h3>
-    <p><em>Feb 2025 – Present</em></p>
-    <ul>
-      <li>Developing ERP and web applications using Python, Django, Angular, and SQL</li>
-      <li>Participating in backend architecture and design discussions</li>
-      <li>Debugging, optimization, and production issue resolution</li>
-    </ul>
-  </div>
+    <section id="skills">
+        <h2 class="animate">Skills & Expertise</h2>
+        <div class="card animate">
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="skill-label">Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="90%"></div>
+                    </div>
+                    <small>Backend Development, Scripting, Automation</small>
+                </div>
 
-  <div class="card">
-    <h3>Junior Software Developer – Travidux Technologies</h3>
-    <p><em>Mar 2024 – Jan 2025</em></p>
-    <ul>
-      <li>Developed ERP modules using Python and Angular</li>
-      <li>Implemented SQL queries and reporting features</li>
-      <li>Collaborated using Git and unit testing practices</li>
-    </ul>
-  </div>
-</section>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="skill-label">Django</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="85%"></div>
+                    </div>
+                    <small>REST APIs, ERP Systems, Web Frameworks</small>
+                </div>
 
-<section>
-  <h2>Highlighted Projects</h2>
-  <div class="projects-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <div class="skill-label">Java</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="75%"></div>
+                    </div>
+                    <small>Spring Boot, Enterprise Apps, OOP</small>
+                </div>
 
-    <div class="project-card">
-      <h3>Hospital Management System</h3>
-      <p>Backend-driven system for managing patients, doctors, and appointments with optimized database performance.</p>
-      <span class="tag">Django</span>
-      <span class="tag">Backend</span>
-      <span class="tag">SQL</span>
-    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="skill-label">HTML5</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="88%"></div>
+                    </div>
+                    <small>Semantic Markup, Accessibility, SEO</small>
+                </div>
 
-    <div class="project-card">
-      <h3>Diabetic Retinopathy Detection</h3>
-      <p>Machine learning-based application using CNN (VGG16) to classify diabetic retinopathy stages.</p>
-      <span class="tag">Python</span>
-      <span class="tag">ML</span>
-      <span class="tag">CNN</span>
-    </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="skill-label">CSS3</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="85%"></div>
+                    </div>
+                    <small>Flexbox, Grid, Animations, Responsive</small>
+                </div>
 
-  </div>
-</section>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="skill-label">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="78%"></div>
+                    </div>
+                    <small>ES6+, DOM, Async, Modern Frameworks</small>
+                </div>
 
-<footer>
-  <p>© 2026 Anu Mole R S | Python Django Developer</p>
-</footer>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <div class="skill-label">Git</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="82%"></div>
+                    </div>
+                    <small>Version Control, GitHub, CI/CD</small>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-label">PostgreSQL</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="80%"></div>
+                    </div>
+                    <small>Query Optimization, Indexing, ERD</small>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-angular"></i>
+                    </div>
+                    <div class="skill-label">Angular</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-percent="75%"></div>
+                    </div>
+                    <small>Components, Services, RxJS</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="experience">
+        <h2 class="animate">Professional Experience</h2>
+        <div class="experience-item card animate">
+            <h3>Software Developer</h3>
+            <div class="experience-date">Travidux Technologies • Feb 2025 – Present</div>
+            <ul>
+                <li>Architect and develop ERP systems using Python/Django with Angular frontend</li>
+                <li>Lead backend optimization reducing query times by 60% through database indexing</li>
+                <li>Implement scalable REST APIs handling 10K+ daily transactions</li>
+            </ul>
+        </div>
+
+        <div class="experience-item card animate">
+            <h3>Junior Software Developer</h3>
+            <div class="experience-date">Travidux Technologies • Mar 2024 – Jan 2025</div>
+            <ul>
+                <li>Built 5+ ERP modules with complex business logic and reporting features</li>
+                <li>Optimized SQL queries improving report generation speed by 40%</li>
+                <li>Established CI/CD pipelines and comprehensive unit testing coverage</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="animate">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card animate">
+                <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Hospital Management System" class="project-image">
+                <div class="project-content">
+                    <h3>Hospital Management System</h3>
+                    <p class="project-description">
+                        Comprehensive role-based ERP system managing patients, doctors, appointments,
+                        billing, and advanced reporting with optimized PostgreSQL queries.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Django REST</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">ERP</span>
+                    </div>
+                    <a href="https://github.com/anu-mole/hospital-management-system" target="_blank"
+                        class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card animate">
+                <img src="https://images.unsplash.com/photo-1581091870627-3a7c7c6b8c6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Diabetic Retinopathy Detection" class="project-image">
+                <div class="project-content">
+                    <h3>Diabetic Retinopathy Detection</h3>
+                    <p class="project-description">
+                        ML-powered diagnostic tool using CNN (VGG16 transfer learning) achieving 94%
+                        accuracy in classifying diabetic retinopathy stages from retinal images.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">CNN</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                    <a href="https://github.com/anu-mole/diabetic-retinopathy" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="animate">Let's Work Together</h2>
+        <div class="card animate">
+            <div class="contact-form">
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: var(--text-secondary);">
+                    Interested in collaborating on your next project? Send me a message.
+                </p>
+                <form action="https://formspree.io/f/xayrzzqn" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Anu Mole R S | Crafted with <i class="fas fa-heart" style="color: #ef4444;"></i> in Python</p>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle i').className = 'fas fa-sun';
+        }
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate').forEach(el => {
+            el.style.opacity = '0';
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Animate skill bars
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                if (bar.getBoundingClientRect().top < window.innerHeight) {
+                    bar.style.width = bar.getAttribute('data-percent');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateSkillBars);
+        animateSkillBars(); // Initial call
+    </script>
 
 </body>
-</html>
 
+</html>
