@@ -4,15 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anu Mole R S | Python Django Developer</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f8f9fa; color: #333; }
-    header { background: #0d6efd; color: white; padding: 40px 20px; text-align: center; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    h2 { color: #0d6efd; margin-bottom: 10px; }
-    .skills span { display: inline-block; background: #e9ecef; padding: 8px 12px; margin: 6px; border-radius: 20px; }
-    .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    footer { text-align: center; padding: 20px; background: #212529; color: white; }
-    a { color: #0d6efd; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header p { margin: 10px 0; font-size: 1.1rem; }
+    header a { color: #ffd43b; margin: 0 10px; font-weight: 600; }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0d6efd;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .skill-card:hover { transform: translateY(-6px); }
+    .skill-card img { width: 60px; height: 60px; }
+    .skill-card h4 { margin-top: 15px; }
+
+    /* Experience */
+    ul { padding-left: 20px; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .project-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 6px;
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    }
+    .project-card h3 { margin-top: 10px; }
+    .tag {
+      display: inline-block;
+      background: #e7f1ff;
+      color: #0d6efd;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin-right: 6px;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #212529;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    @media(max-width: 600px) {
+      header h1 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
@@ -21,8 +121,8 @@
   <h1>Anu Mole R S</h1>
   <p>Python Django Developer | Backend & ERP Applications</p>
   <p>
-    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank" style="color:white;">LinkedIn</a> |
-    <a href="mailto:anumolers@gmail.com" style="color:white;">Email</a>
+    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank">LinkedIn</a> |
+    <a href="mailto:anumolers@gmail.com">Email</a>
   </p>
 </header>
 
@@ -30,25 +130,21 @@
   <h2>About Me</h2>
   <div class="card">
     <p>
-      Software Developer with 1+ year of experience in building ERP and web applications using Python, Django, Angular, and SQL.
-      Experienced in backend development, REST APIs, database operations, and performance optimization.
+      Software Developer with 1+ year of experience in building ERP and web applications using <strong>Python, Django, Angular, and SQL</strong>.
+      Specialized in backend development, REST APIs, database optimization, and scalable enterprise solutions.
     </p>
   </div>
 </section>
 
 <section>
   <h2>Skills</h2>
-  <div class="card skills">
-    <span>Python</span>
-    <span>Django</span>
-    <span>Backend Development</span>
-    <span>REST APIs</span>
-    <span>Angular</span>
-    <span>SQL</span>
-    <span>PostgreSQL</span>
-    <span>MySQL</span>
-    <span>ERP Systems</span>
-    <span>Git</span>
+  <div class="skills-grid">
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><h4>Python</h4></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"/><h4>Django</h4></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"/><h4>Angular</h4></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/><h4>PostgreSQL</h4></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/><h4>MySQL</h4></div>
+    <div class="skill-card"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><h4>Git</h4></div>
   </div>
 </section>
 
@@ -59,7 +155,7 @@
     <p><em>Feb 2025 – Present</em></p>
     <ul>
       <li>Developing ERP and web applications using Python, Django, Angular, and SQL</li>
-      <li>Participating in technical design and architecture discussions</li>
+      <li>Participating in backend architecture and design discussions</li>
       <li>Debugging, optimization, and production issue resolution</li>
     </ul>
   </div>
@@ -70,21 +166,31 @@
     <ul>
       <li>Developed ERP modules using Python and Angular</li>
       <li>Implemented SQL queries and reporting features</li>
-      <li>Worked with Git and unit testing</li>
+      <li>Collaborated using Git and unit testing practices</li>
     </ul>
   </div>
 </section>
 
 <section>
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Hospital Management System</h3>
-    <p>Backend system for managing patients, doctors, and appointments with CRUD operations and optimized database performance.</p>
-  </div>
+  <h2>Highlighted Projects</h2>
+  <div class="projects-grid">
 
-  <div class="card">
-    <h3>Diabetic Retinopathy Detection (ML)</h3>
-    <p>Implemented CNN-based detection using VGG16 to classify diabetic retinopathy into five stages.</p>
+    <div class="project-card">
+      <h3>Hospital Management System</h3>
+      <p>Backend-driven system for managing patients, doctors, and appointments with optimized database performance.</p>
+      <span class="tag">Django</span>
+      <span class="tag">Backend</span>
+      <span class="tag">SQL</span>
+    </div>
+
+    <div class="project-card">
+      <h3>Diabetic Retinopathy Detection</h3>
+      <p>Machine learning-based application using CNN (VGG16) to classify diabetic retinopathy stages.</p>
+      <span class="tag">Python</span>
+      <span class="tag">ML</span>
+      <span class="tag">CNN</span>
+    </div>
+
   </div>
 </section>
 
@@ -94,3 +200,4 @@
 
 </body>
 </html>
+
