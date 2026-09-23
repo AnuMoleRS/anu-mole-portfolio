@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Anu Mole R S | Python Django Developer</title>
+    <meta name="description"
+        content="Portfolio of Anu Mole R S - Python Django Developer specializing in backend architecture, RESTful APIs, and Enterprise ERP Systems.">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
 
+    <!-- Initial Loading Screen Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-logo">Anu<span class="logo-accent">.</span></div>
+            <div class="loader-text">Loading portfolio...</div>
+        </div>
+    </div>
+
+    <!-- Header / Top Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Anu<span style="color:var(--primary)">.</span></a>
+            <a href="#" class="logo">Anu<span class="logo-accent">.</span></a>
+
             <ul class="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -22,30 +35,69 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+        <div class="drawer-header">
+            <span class="logo">Anu<span class="logo-accent">.</span></span>
+            <button id="drawer-close-btn" class="icon-btn" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="#about" class="drawer-link"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#skills" class="drawer-link"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#experience" class="drawer-link"><i class="fas fa-briefcase"></i> Experience</a></li>
+            <li><a href="#certifications" class="drawer-link"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#projects" class="drawer-link"><i class="fas fa-folder-open"></i> Projects</a></li>
+            <li><a href="#contact" class="drawer-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="assets/resume.pdf" download class="btn-primary full-width">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </div>
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <div class="hero-subtitle">
-                    <span>Hello, I'm</span>
+                <div class="hero-greeting">
+                    <span class="greeting-badge"><i class="fas fa-sparkles"></i> Welcome to my portfolio</span>
                 </div>
-                <h1>Anu Mole <span class="gradient-text">R S</span></h1>
+                <h1 class="hero-title">Anu Mole <span class="gradient-text">R S</span></h1>
                 <h2 class="hero-subtitle">
                     <span class="typing-text"></span>
                 </h2>
                 <div class="hero-tags">
-                    <span class="tag">Java Full Stack Development</span>
-                    <span class="tag">Python Django</span>
+                    <span class="tag"><i class="fab fa-python"></i> Python Django</span>
+                    <span class="tag"><i class="fab fa-java"></i> Java Full Stack</span>
+                    <span class="tag"><i class="fas fa-network-wired"></i> RESTful APIs</span>
+                    <span class="tag"><i class="fas fa-database"></i> SQL Optimization</span>
                 </div>
-                <p style="color: var(--text-muted); max-width: 600px; margin-bottom: 2rem;">
-                    Specialized in backend architecture, RESTful APIs, and database optimization.
-                    Building scalable ERP systems that drive business growth.
+                <p class="hero-description">
+                    Software Developer specializing in backend architecture, REST APIs, and high-performance database
+                    optimization. Experienced in engineering scalable enterprise ERP solutions.
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#contact" class="btn-primary">Let's Talk</a>
+                    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Let's Talk</a>
                     <a href="assets/resume.pdf" download class="btn-secondary">
                         <i class="fas fa-download"></i> Resume
                     </a>
@@ -58,7 +110,7 @@
                     </div>
                     <div class="stat-item">
                         <h3>5+</h3>
-                        <p>Projects</p>
+                        <p>Enterprise Projects</p>
                     </div>
                     <div class="stat-item">
                         <h3>100%</h3>
@@ -67,56 +119,66 @@
                 </div>
 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank" class="social-btn"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/anu-mole" target="_blank" class="social-btn"><i
-                            class="fab fa-github"></i></a>
-                    <a href="mailto:your@email.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/anu-mole" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:anumolers@gmail.com" class="social-btn" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
 
+            <!-- Profile Image Section (Commented out for now)
             <div class="hero-image-container">
+                <div class="hero-image-backdrop"></div>
                 <div class="hero-image-wrapper">
-                    <img src="assets/profile.jpg" alt="Anu Mole R S" class="hero-image">
+                    <img src="assets/profile.jpeg" alt="Anu Mole R S" class="hero-image" id="profile-img">
                 </div>
 
                 <div class="floating-card top-right">
-                    <div class="card-icon"><i class="fab fa-python"></i></div>
+                    <div class="card-icon python-icon"><i class="fab fa-python"></i></div>
                     <div>
-                        <div style="font-weight: bold; font-size: 0.9rem;">Python Expert</div>
-                        <div style="font-size: 0.75rem; color: var(--text-muted);">Django & APIs</div>
+                        <div class="card-title">Python Expert</div>
+                        <div class="card-subtitle">Django & REST APIs</div>
                     </div>
                 </div>
 
                 <div class="floating-card bottom-left">
-                    <div class="card-icon"><i class="fas fa-database"></i></div>
+                    <div class="card-icon db-icon"><i class="fas fa-server"></i></div>
                     <div>
-                        <div style="font-weight: bold; font-size: 0.9rem;">Backend</div>
-                        <div style="font-size: 0.75rem; color: var(--text-muted);">Scalable Auth</div>
+                        <div class="card-title">ERP Backend</div>
+                        <div class="card-subtitle">Scalable Architecture</div>
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </header>
 
+    <!-- About Section -->
     <section id="about" class="animate-on-scroll">
         <div class="container">
             <div class="section-header">
                 <div class="section-subtitle">Introduction</div>
                 <h2 class="section-title">About Me</h2>
-                <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">
-                    Software Developer with 2+ year of experience building scalable ERP and web applications using
-                    Python, Django, Angular, and SQL.
-                    I specialize in backend architecture, database optimization, and creating enterprise solutions.
+                <p class="section-description">
+                    Software Developer with hands-on experience building robust ERP platforms and web applications using
+                    Python, Django, Angular, and SQL databases. Specialized in backend performance tuning, secure
+                    database design, and end-to-end software integration.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="animate-on-scroll" style="background: rgba(255,255,255,0.02);">
+    <!-- Technical Skills Section -->
+    <section id="skills" class="animate-on-scroll section-alt">
         <div class="container">
             <div class="section-header">
-                <div class="section-subtitle">My Arsenal</div>
+                <div class="section-subtitle">My Tech Stack</div>
                 <h2 class="section-title">Technical Skills</h2>
             </div>
 
@@ -128,7 +190,7 @@
                 </div>
                 <!-- Django -->
                 <div class="skill-card">
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <div class="skill-icon"><i class="fas fa-cubes"></i></div>
                     <div class="skill-name">Django</div>
                 </div>
                 <!-- PostgreSQL -->
@@ -146,6 +208,11 @@
                     <div class="skill-icon"><i class="fab fa-java"></i></div>
                     <div class="skill-name">Java</div>
                 </div>
+                <!-- REST API -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-name">REST APIs</div>
+                </div>
                 <!-- HTML5 -->
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-html5"></i></div>
@@ -156,7 +223,7 @@
                     <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
                     <div class="skill-name">CSS3</div>
                 </div>
-                <!-- JS -->
+                <!-- JavaScript -->
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-js"></i></div>
                     <div class="skill-name">JavaScript</div>
@@ -170,112 +237,196 @@
         </div>
     </section>
 
+    <!-- Experience Timeline Section -->
     <section id="experience" class="animate-on-scroll">
         <div class="container">
             <div class="section-header">
                 <div class="section-subtitle">Career Path</div>
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-title">Work Experience</h2>
             </div>
 
             <div class="timeline">
+                <!-- Role 1: Project Delivery Engineer (PDE) -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Feb 2025 - Present</span>
-                        <h3>Software Developer</h3>
-                        <h4>Travidux Technologies</h4>
-                        <ul>
-                            <li>Architect and develop ERP systems using Python/Django with Angular frontend.</li>
-                            <li>Lead backend optimization reducing query times by 60% through database indexing.</li>
-                            <li>Implement scalable REST APIs handling 10K+ daily transactions.</li>
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Project Delivery Engineer (PDE)</h3>
+                                <h4 class="company-name"><i class="fas fa-building"></i> Travidux Technologies Pvt. Ltd.
+                                </h4>
+                            </div>
+                            <span class="timeline-date"><i class="far fa-calendar-alt"></i> Apr 2026 - Present</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Lead end-to-end delivery of Enterprise ERP solutions, translating complex business
+                                requirements into scalable technical implementations.</li>
+                            <li>Architect Python/Django backend services integrated with Angular frontend interfaces for
+                                client deployments.</li>
+                            <li>Engineered database index and query optimizations, reducing database query response
+                                latency by up to 60%.</li>
+                            <li>Oversee production release cycles, API stability, and secure RESTful endpoints handling
+                                10,000+ daily transactions.</li>
                         </ul>
+                        <div class="role-tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Angular</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">ERP Delivery</span>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Role 2: Software Developer -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Mar 2024 - Jan 2025</span>
-                        <h3>Junior Software Developer</h3>
-                        <h4>Travidux Technologies</h4>
-                        <ul>
-                            <li>Built 5+ ERP modules with complex business logic and reporting features.</li>
-                            <li>Optimized SQL queries improving report generation speed by 40%.</li>
-                            <li>Established CI/CD pipelines and comprehensive unit testing coverage.</li>
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Software Developer</h3>
+                                <h4 class="company-name"><i class="fas fa-building"></i> Travidux Technologies Pvt. Ltd.
+                                </h4>
+                            </div>
+                            <span class="timeline-date"><i class="far fa-calendar-alt"></i> Apr 2025 - Mar 2026</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Engineered core ERP backend modules with complex business logic, role-based access
+                                control (RBAC), and automated reporting.</li>
+                            <li>Designed and maintained RESTful API endpoints, improving API data throughput and system
+                                reliability.</li>
+                            <li>Optimized PostgreSQL database schemas, indexing strategies, and automated data
+                                pipelines.</li>
                         </ul>
+                        <div class="role-tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">RESTful APIs</span>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Role 3: Junior Software Developer -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Junior Software Developer</h3>
+                                <h4 class="company-name"><i class="fas fa-building"></i> Travidux Technologies Pvt. Ltd.
+                                </h4>
+                            </div>
+                            <span class="timeline-date"><i class="far fa-calendar-alt"></i> Mar 2024 - March 2025</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Developed custom ERP features and analytical reporting modules using Python, Django, and
+                                SQL queries.</li>
+                            <li>Reduced query execution time and report generation latency by 40% through indexing and
+                                query refactoring.</li>
+                            <li>Assisted senior software engineers in API contract testing, unit test suites, and bug
+                                fixes.</li>
+                        </ul>
+                        <div class="role-tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">CRUD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 4: Java Full Stack Trainee -->
                 <div class="timeline-item">
                     <div class="timeline-dot secondary"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">Jul 2023</span>
-                        <h3>Java Full Stack Development</h3>
-                        <h4>QSpiders - Software Testing Training Institute</h4>
-                        <ul>
-                            <li>Comprehensive training in Java Development, JDBC, Hibernate, and Spring.</li>
-                            <li>Hands-on experience with MySQL and Frontend technologies.</li>
-                            <li>Completed intensive full-stack development curriculum.</li>
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="role-title">Java Full Stack Development Trainee</h3>
+                                <h4 class="company-name"><i class="fas fa-graduation-cap"></i> QSpiders Training
+                                    Institute</h4>
+                            </div>
+                            <span class="timeline-date"><i class="far fa-calendar-alt"></i> Jul 2023 - Feb 2024</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>Completed intensive full-stack development curriculum in Java Enterprise, JDBC,
+                                Hibernate ORM, and Spring frameworks.</li>
+                            <li>Designed relational database schemas, transaction handling logic, and web application
+                                modules.</li>
                         </ul>
+                        <div class="role-tech-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Hibernate</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Spring</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="animate-on-scroll">
+    <!-- Certifications Section -->
+    <section id="certifications" class="animate-on-scroll section-alt">
         <div class="container">
-            <h2 class="section-title">Certifications</h2>
+            <div class="section-header">
+                <div class="section-subtitle">Qualifications</div>
+                <h2 class="section-title">Certifications</h2>
+            </div>
 
             <div class="cert-grid">
                 <!-- Cert 1: Java Full Stack -->
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-code"></i></div>
+                    <div class="cert-icon java-cert"><i class="fas fa-code"></i></div>
                     <h3>Java Full Stack Development</h3>
-                    <p style="margin-bottom: 0.5rem; color: var(--text-secondary);">QSpiders - Software Testing Training
-                        Institute</p>
-                    <p style="font-weight: 700; color: var(--accent-blue);">July 2023</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        Intensive training in Java, SQL, and Web Technologies. Mastered JDBC, Hibernate, and Spring
-                        frameworks.
+                    <p class="cert-issuer">QSpiders Institute</p>
+                    <span class="badge badge-primary">Completed July 2023</span>
+                    <p class="cert-desc">
+                        Intensive training in Java, SQL, JDBC, Hibernate, Spring, and modern web application standards.
                     </p>
                 </div>
 
-                <!-- Cert 2: AWS (Coursera) -->
+                <!-- Cert 2: AWS -->
                 <div class="cert-card">
-                    <div class="cert-icon" style="color: #ff9900;"><i class="fab fa-aws"></i></div>
+                    <div class="cert-icon aws-cert"><i class="fab fa-aws"></i></div>
                     <h3>AWS Cloud Architect</h3>
-                    <p style="margin-bottom: 0.5rem; color: var(--text-secondary);">Coursera</p>
-                    <p style="font-weight: 700; color: #ff9900;">Verified</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        Comprehensive understanding of AWS Cloud services, architecture, security, and deployment
-                        strategies.
+                    <p class="cert-issuer">Coursera</p>
+                    <span class="badge badge-warning">Verified</span>
+                    <p class="cert-desc">
+                        Hands-on mastery of AWS cloud infrastructure, microservices deployment, EC2, and security
+                        practices.
                     </p>
                 </div>
 
-                <!-- Cert 3: IBM Certification -->
+                <!-- Cert 3: IBM -->
                 <div class="cert-card">
-                    <div class="cert-icon" style="color: #0f62fe;"><i class="fab fa-ibm"></i></div>
+                    <div class="cert-icon ibm-cert"><i class="fab fa-ibm"></i></div>
                     <h3>IBM Full Stack Developer</h3>
-                    <p style="margin-bottom: 0.5rem; color: var(--text-secondary);">IBM</p>
-                    <p style="font-weight: 700; color: #0f62fe;">Verified</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
-                        Professional certificate covering Cloud application development, DevOps, and microservices
-                        architecture.
+                    <p class="cert-issuer">IBM</p>
+                    <span class="badge badge-info">Verified</span>
+                    <p class="cert-desc">
+                        Professional certificate covering cloud backend development, containerized microservices, and
+                        DevOps.
                     </p>
                 </div>
 
-                <!-- Cert 4: Python (Additional) -->
+                <!-- Cert 4: Python -->
                 <div class="cert-card">
-                    <div class="cert-icon" style="color: #10b981;"><i class="fab fa-python"></i></div>
+                    <div class="cert-icon python-cert"><i class="fab fa-python"></i></div>
                     <h3>Python Programming</h3>
-                    <p style="margin-bottom: 0.5rem; color: var(--text-secondary);">LinkedIn Assessment</p>
-                    <p style="font-weight: 700; color: #10b981;">Verified</p>
+                    <p class="cert-issuer">LinkedIn Assessment</p>
+                    <span class="badge badge-success">Verified Skill</span>
+                    <p class="cert-desc">
+                        Demonstrated proficiency in Python core structures, OOP principles, data handling, and module
+                        design.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Featured Projects Section -->
     <section id="projects" class="animate-on-scroll">
         <div class="container">
             <div class="section-header">
@@ -284,157 +435,186 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Project 1: Hospital Management -->
+                <!-- Project 1: Enterprise ERP Management Platform -->
                 <div class="project-card">
-                    <div class="project-img-wrapper"
-                        style="background: linear-gradient(45deg, #1e3c72, #2a5298); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-hospital-user" style="font-size: 5rem; color: rgba(255,255,255,0.8);"></i>
-                        <div class="project-overlay"></div>
+                    <div class="project-img-wrapper erp-bg">
+                        <i class="fas fa-chart-line project-icon"></i>
+                        <div class="project-badge">Mar 2024 - Present</div>
                     </div>
                     <div class="project-info">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold;">
-                            Nov 2023 - Dec 2023
+                        <h3 class="project-title">Enterprise ERP Platform</h3>
+                        <p class="project-desc">
+                            Engineered a comprehensive Enterprise Resource Planning (ERP) platform for business
+                            operations. Integrated inventory tracking, sales order processing, automated invoicing, and
+                            role-based access control (RBAC). Optimized database queries for high transaction volumes.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Angular</span>
+                            <span class="tag">REST API</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Hospital Management System -->
+                <div class="project-card">
+                    <div class="project-img-wrapper hospital-bg">
+                        <i class="fas fa-hospital-user project-icon"></i>
+                        <div class="project-badge">Nov 2023 - Dec 2023</div>
+                    </div>
+                    <div class="project-info">
                         <h3 class="project-title">Hospital Management System</h3>
                         <p class="project-desc">
-                            Led the development of a Hospital Management System using Hibernate. Streamlined database
-                            interactions for patient, doctor, and appointment modules. Designed entity classes and
-                            established relationships to ensure data integrity and performance.
+                            Designed and built a Hospital Management solution using Java and Hibernate ORM. Streamlined
+                            doctor appointment schedules, patient medical records, and billing workflows while enforcing
+                            relational data integrity.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Java</span>
                             <span class="tag">Hibernate</span>
                             <span class="tag">MySQL</span>
+                            <span class="tag">OOP</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Employee DBMS -->
+                <!-- Project 3: Employee DBMS & Payroll System -->
                 <div class="project-card">
-                    <div class="project-img-wrapper"
-                        style="background: linear-gradient(45deg, #11998e, #38ef7d); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-users-cog" style="font-size: 5rem; color: rgba(255,255,255,0.8);"></i>
-                        <div class="project-overlay"></div>
+                    <div class="project-img-wrapper employee-bg">
+                        <i class="fas fa-users-cog project-icon"></i>
+                        <div class="project-badge">Nov 2023</div>
                     </div>
                     <div class="project-info">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold;">
-                            Nov 2023
-                        </div>
-                        <h3 class="project-title">Employee Database System</h3>
+                        <h3 class="project-title">Employee Database & Payroll</h3>
                         <p class="project-desc">
-                            Developed an Employee Database Management System using JDBC in Java. Implemented full CRUD
-                            functionalities and designed efficient database schemas. Focused on transaction management
-                            and reliable data handling.
+                            Developed a secure Employee Management System utilizing Java JDBC and relational database
+                            schemas. Implemented ACID-compliant CRUD operations, salary processing algorithms, and
+                            transactional logging.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Java</span>
                             <span class="tag">JDBC</span>
+                            <span class="tag">MySQL</span>
                             <span class="tag">CRUD</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 3: Diabetic Retinopathy -->
-                <div class="project-card">
-                    <div class="project-img-wrapper"
-                        style="background: linear-gradient(45deg, #833ab4, #fd1d1d); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-eye" style="font-size: 5rem; color: rgba(255,255,255,0.8);"></i>
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold;">
-                            Jun 2022 - May 2023
-                        </div>
-                        <h3 class="project-title">Diabetic Retinopathy Detection</h3>
-                        <p class="project-desc">
-                            Implemented using Convolutional Neural Network (CNN) with VGG16 Algorithm. Detects diabetic
-                            retinopathy and classifies it into five classes. Enables early detection relative to
-                            traditional methods.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">CNN / VGG16</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Arduino Vehicle -->
-                <div class="project-card">
-                    <div class="project-img-wrapper"
-                        style="background: linear-gradient(45deg, #0f2027, #203a43, #2c5364); display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-car-side" style="font-size: 5rem; color: rgba(255,255,255,0.8);"></i>
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold;">
-                            Jan 2022 - May 2022
-                        </div>
-                        <h3 class="project-title">Voice Controlled Vehicle</h3>
-                        <p class="project-desc">
-                            Arduino-based vehicle controlled via voice commands sent from a mobile app over Bluetooth.
-                            Integrated motor drivers and Bluetooth modules for seamless hardware-software communication.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Arduino</span>
-                            <span class="tag">C++</span>
-                            <span class="tag">Bluetooth</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="animate-on-scroll" style="margin-bottom: 0;">
+    <!-- Contact Section (Styled like arjunms.in screenshot) -->
+    <section id="contact" class="animate-on-scroll section-alt">
         <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Get in Touch</div>
-                <h2 class="section-title">Contact Me</h2>
-            </div>
-
             <div class="contact-wrapper">
-                <form action="https://formspree.io/f/xayrzzqn" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required class="form-input">
+                <div class="contact-card-header">
+                    <div class="contact-header-left">
+                        <div class="contact-icon-badge">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div>
+                            <div class="contact-card-title">Get in Touch</div>
+                            <div class="contact-card-subtitle">Let's discuss your ideas, opportunities, or questions.
+                            </div>
+                        </div>
                     </div>
+                    <button type="button" class="contact-close-btn" aria-label="Close"
+                        onclick="document.getElementById('contact-form').reset();">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <form action="https://formspree.io/f/xayrzzqn" method="POST" id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-email">Your Email Address <span class="required-star">*</span></label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="contact-email" name="email" placeholder="e.g. name@example.com"
+                                required class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">Your Message <span class="required-star">*</span></label>
+                        <div class="input-with-icon textarea-icon">
+                            <i class="fas fa-comment-dots"></i>
+                            <textarea id="contact-message" name="message"
+                                placeholder="Write your message, project specifications, or collaboration details..."
+                                required rows="4" class="form-input"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="delivery-info-box">
+                        <i class="fas fa-shield-halved"></i>
+                        <div class="delivery-info-text">
+                            Direct delivery to <strong>anumolers@gmail.com</strong> with automated delivery
+                            confirmation.
+                        </div>
+                    </div>
+
+                    <div id="form-status-msg" class="form-status-box" style="display: none;"></div>
+
+                    <div class="form-actions-row">
+                        <button type="reset" class="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn-send-modal" id="submit-btn">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div style="margin-bottom: 1.5rem;">
-                <input type="email" name="email" placeholder="Your Email" required
-                    style="width: 100%; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white;">
-            </div>
-            <div style="margin-bottom: 1.5rem;">
-                <textarea name="message" placeholder="Your Message" required rows="5"
-                    style="width: 100%; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white;"></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send
-                Message</button>
-            </form>
-        </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <h2>Anu Mole R S</h2>
-            <p>Building the future with Python & Django</p>
+            <h2 class="footer-logo">Anu Mole R S</h2>
+            <p>Python Django & Java Full Stack Software Developer</p>
 
-            <div class="social-links" style="justify-content: center;">
-                <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank" class="social-btn"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/anu-mole" target="_blank" class="social-btn"><i
-                        class="fab fa-github"></i></a>
+            <div class="social-links centered">
+                <a href="https://www.linkedin.com/in/anu-mole-r-s" target="_blank" class="social-btn"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/anu-mole" target="_blank" class="social-btn" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:anumolers@gmail.com" class="social-btn" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
 
             <div class="footer-bottom">
-                &copy; 2026 Anu Mole R S. Crafted with <span class="heart">♥</span> in India.
+                &copy; 2026 Anu Mole R S. All rights reserved.
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Bottom Navigation Bar (App-like UX) -->
+    <div class="mobile-bottom-nav">
+        <a href="#home" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#skills" class="bottom-nav-item">
+            <i class="fas fa-code"></i>
+            <span>Skills</span>
+        </a>
+        <a href="#experience" class="bottom-nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Exp.</span>
+        </a>
+        <a href="#projects" class="bottom-nav-item">
+            <i class="fas fa-folder-open"></i>
+            <span>Projects</span>
+        </a>
+        <a href="#contact" class="bottom-nav-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
